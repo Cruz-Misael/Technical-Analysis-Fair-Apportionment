@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Análise Técnica - Software de Gestão para Advocacia
+    </title>
+    
+    <link rel="icon" type="image/png" href="Logo.png">    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .images-section {
+            margin-top: 30px;
+            text-align: center;
+
+        }
+
+        .images-section img {
+            max-width: 49.8%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .images-section1 {
+            margin-top: 40px;
+            text-align: center;
+
+        }
+
+        .images-section1 img {
+            max-width: 80%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Análise Técnica - Software de Gestão para Advocacia</h1>
+        <h4>Advocacia Processos Trabalhistas</h4>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>1. Introdução</h2>
+            <p>Este documento descreve a análise técnica para o desenvolvimento de um software de gestão jurídica voltado para escritórios de advocacia, utilizando <strong>React.js</strong> como tecnologia no front-end e <strong>Postgree</strong> no back-end. O propósito principal do projeto é melhorar a eficiência na gestão de processos jurídicos, permitindo um controle mais ágil e organizado das informações. Além disso, busca-se facilitar a comunicação entre advogados, peritos e clientes, garantindo que as informações importantes sejam acessíveis de maneira clara e prática. Outro ponto essencial é a automação de tarefas administrativas, como o controle de prazos e a organização de documentações, eliminando processos manuais e aumentando a produtividade da equipe jurídica.</p>
+        </section>
+
+        <section>
+            <h2>2. Objetivos</h2>
+            <p>O projeto busca automatizar o controle de processos e clientes dentro de um escritório de advocacia, tornando as operações mais ágeis e eficientes. A ideia é que a plataforma gerencie automaticamente os dados relacionados aos processos judiciais, incluindo prazos, status e informações dos clientes, reduzindo a necessidade de intervenções manuais e otimizando a produtividade da equipe jurídica. 
+
+                Além disso, o sistema deve proporcionar um acesso fácil e rápido a documentos processuais, como petições e decisões, permitindo que advogados, peritos e clientes possam consultar as informações de forma organizada e intuitiva. Isso garante que o fluxo de trabalho seja mais simples e ágil, com uma interface que favoreça a busca eficiente e categorização dos arquivos.
+                
+                Um aspecto fundamental do desenvolvimento é a conformidade com a Lei Geral de Proteção de Dados (LGPD). A segurança das informações é uma prioridade, e o sistema deve ser projetado para proteger os dados pessoais dos clientes e informações confidenciais dos processos. Isso envolve a implementação de medidas como criptografia, controle de acesso rigoroso e prevenção de vazamento de dados, assegurando que o tratamento de todas as informações esteja de acordo com os requisitos legais.
+                
+                Por fim, a integração com APIs de consulta jurídica será essencial para facilitar o fluxo de dados entre o sistema interno e fontes externas, como tribunais e órgãos reguladores. Essa integração permitirá que as informações processuais sejam atualizadas automaticamente, sem a necessidade de busca manual. Webhooks serão utilizados para enviar notificações automáticas para advogados e clientes sempre que houver novidades, como mudanças no status do processo ou novas decisões, garantindo que todos os envolvidos estejam sempre informados em tempo real.
+                
+                Esses elementos juntos formam um sistema integrado, seguro e otimizado, projetado para melhorar o dia a dia dos advogados e proporcionar uma experiência mais fluida e eficiente para os clientes.</p>
+        </section>
+
+        
+        <section>
+            <h2>3. Escopo do Projeto</h2>
+            <p>O software será estruturado em módulos específicos, cada um desempenhando uma função essencial para otimizar o trabalho jurídico. Esses módulos incluirão:</p>
+            <ul>
+                <li><strong>Cadastro e gerenciamento de clientes e processos</strong>: Esse módulo permitirá o registro detalhado de clientes e seus respectivos processos, garantindo que todas as informações sejam organizadas e facilmente acessíveis, com funcionalidades que facilitem o acompanhamento do andamento de cada caso.</li><br>
+                <li><strong>Geração e armazenamento de documentos</strong>: Os usuários poderão gerar e armazenar documentos jurídicos diretamente no sistema, como petições, contratos e outros arquivos. O módulo permitirá a categorização e o versionamento dos documentos, assegurando que todas as partes envolvidas tenham acesso aos arquivos atualizados.</li><br>
+                <li><strong>Integração com APIs de consulta processual</strong>: O software será integrado com APIs que oferecem consultas processuais em tempo real, possibilitando que os advogados obtenham informações atualizadas sobre os processos diretamente pela plataforma, sem a necessidade de acessar múltiplos sistemas externos.</li><br>
+                <li><strong>Notificações automáticas de prazos e eventos jurídicos via webhook</strong>: Para garantir que os advogados e clientes estejam sempre informados, o sistema enviará notificações automáticas sobre prazos e eventos processuais relevantes, utilizando webhooks. Isso ajudará a evitar esquecimentos e permitirá uma gestão mais eficaz dos processos.</li>
+            </ul>
+            <p>Esses módulos serão interconectados para proporcionar uma experiência integrada, visando a eficiência e a segurança nas operações jurídicas.</p>
+        </section>
+
+        <section>
+            <h2>4. Requisitos Funcionais e Não Funcionais</h2>
+            <h3> Requisitos Funcionais</h3>
+            <ul>
+                <li>Cadastro de clientes e processos jurídicos.</li>
+                <li>Controle de prazos e audiências.</li>
+                <li>Geração e gestão de documentos processuais.</li>
+                <li>Integração com APIs externas para consultas judiciais.</li>
+            </ul>
+
+            <h3> Requisitos Não Funcionais</h3>
+            <ul>
+                <li>Alta disponibilidade e performance durante o horário comercial.</li>
+                <li>Segurança de dados com criptografia e conformidade com LGPD.</li>
+                <li>Interface responsiva e intuitiva para diferentes dispositivos.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5 Arquitetura do Sistema</h2>
+            <div class="highlight">
+                <p>A arquitetura proposta para o sistema seguirá o modelo <strong>Cliente-Servidor</strong>, onde o <strong>React</strong> será usado para o front-end e o <strong>Node.js</strong> será usado no back-end para a comunicação com o banco de dados <strong>PostgreSQL</strong>. As integrações com APIs externas serão realizadas por meio de <strong>webhooks</strong> e endpoints RESTful.</p>
+            </div>
+            <h3>Frontend (React)</h3>
+            <p>A escolha pelo <strong>React</strong> se dá por sua flexibilidade, reutilização de componentes e criação de uma interface amigável e intuitiva tanto para advogados quanto para clientes. O React também facilita a criação de interfaces responsivas, que se adaptam bem a diferentes dispositivos.</p>
+            <p>Principais bibliotecas:</p>
+            <ul>
+                <li><strong>Axis ou Fetch:</strong> Para realizar chamadas às APIs externas.</li><br>
+                <li><strong>React Router:</strong> Para controle de rotas no sistema.</li><br>
+                <li><strong>Formik/Yup:</strong> Para manipulação e validação de formulários.</li><br>
+            </ul>
+            <h3>Backend (Node.js)</h3>
+            <p>O <strong>Node.js</strong> será utilizado para desenvolver APIs que realizam a manipulação de dados e integrações com outros sistemas. Ele será responsável por gerenciar as solicitações entre o frontend e o banco de dados, além de lidar com integrações externas.</p>
+            <p>Principal biblioteca:</p>
+            <ul>
+                <li><strong>Express.js (Node.js)</strong> Para construir APIs RESTful.</li>
+            </ul>
+
+            <h3>Banco de Dados (PostgreSQL)</h3>
+            <p>O <strong>PostgreSQL</strong> será utilizado devido à sua robustez e capacidade de gerenciar relações complexas entre as tabelas. Exemplos incluem uma tabela de clientes, vinculada a uma tabela de processos e outra de documentos. Cada cliente pode ter múltiplos processos associados, e cada processo pode ter vários documentos anexados.</p>
+                  
+            <p>Ferramentas de ORM:</p>
+            <ul>
+                <li><strong>Sequelize (Node.js):</strong> Para facilitar a comunicação entre o backend e o banco.</li>
+            </ul>
+
+            <p>A seguir, o diagrama do banco de dados mais adequado para aplicação:</p>
+            <section class="images-section1">
+                <img src="Diagramas_Bases.png" alt="Imagem do Diagrama das Tabelas">
+            </section>
+
+            <h3>Webhooks e APIs</h3>
+            <p>Serão utilizados <strong>webhooks</strong> para enviar notificações em tempo real aos advogados sobre eventos importantes, como novas atualizações em processos judiciais. As APIs externas serão integradas para realizar consultas automáticas a processos em tribunais, otimizando o fluxo de trabalho.</p>
+            <p><strong>WhastApp API:</strong></p>
+            <ul>
+                <li><strong>WhatsApp Business API:</strong> Para enviar mensagens automáticas para notificar clientes. A integração pode ser feita através de provedores como Twilio, que oferece suporte a WhatsApp.</li><br>
+                <li><strong>Linguagem/SDK:</strong> O uso de Axios (Node.js) ou Requests (Python) para chamadas de API.</li><br>
+                <li><strong>Documentação oficial do Twilio para WhatsApp: </strong> <a href = https://www.twilio.com/pt-br/messaging/channels/whatsapp>WhatsApp API Twilio</a> </li><br>
+            </ul>
+            
+            <p><strong>API do Itaú:</strong></p>
+            <ul>
+                <li>O Itaú possui APIs para pagamentos e transferências, especialmente voltadas a empresas. As APIs financeiras seguem o padrão Open Banking e utilizam OAuth 2.0 para autenticação.</li><br>
+                <li><strong>Linguagem:</strong> O uso de Axios (Node.js) ou Requests (Python) para chamadas de API.</li><br>
+                <li><strong>Documentação oficial API Itaú:</strong> <a href = https://devportal.itau.com.br/nossas-apis/openfinance>Itaú Open Finance</a> </li><br>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Motor de Regras e Processos de Automação</h2>
+            <p>O motor de regras e processos automáticos, como consultas, validação e envio de documentos fiscais, pode ser gerido por bibliotecas que agendam e controlam filas de tarefas. Essas bibliotecas são adequadas para enviar lembretes ou processar grandes volumes de dados em background.</p>
+            <ul>
+                <li><strong>Linguagem:</strong> Node.js com <strong>Bull</strong> ou <strong>Agenda</strong> (para gerenciar jobs agendados).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Geração de Documentos e Automação de Emails</h2>
+            <p>O motor de regras e processos automáticos, como consultas, validação e envio de documentos fiscais, pode ser gerido por bibliotecas que agendam e controlam filas de tarefas. Essas bibliotecas são adequadas para enviar lembretes ou processar grandes volumes de dados em background.</p>
+            <p>Principais blibliotecas:</p>
+            <ul>
+                <li><strong>NodeMailer:</strong> para envio de emails.</li><br>
+                <li><strong>Puppeteer:</strong>  (Node.js) para gerar PDFs automaticamente.</li><br>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Segurança</h2>
+            <h3>Autenticação e Autorização</h3>
+            <p>A autenticação será implementada utilizando o padrão <strong>OAuth 2.0</strong>, oferecendo um login seguro e gerenciamento de permissões baseadas em papéis (advogado, administrador, cliente).</p>
+            <h3>Criptografia</h3>
+            <p>Dados sensíveis serão criptografados tanto em trânsito (usando HTTPS) quanto em repouso (utilizando algoritmos como AES-256), garantindo a conformidade com a LGPD.</p>
+
+            <h3>Backups e Recuperação de Dados</h3>
+            <p>O plano de contingência incluirá backups automáticos diários e a capacidade de recuperação de desastres, para minimizar qualquer impacto em caso de falhas.</p>
+            
+            <h4>Principais Ferramentas</h4>
+            <p>Para a segurança de autenticação as bibliotecas <strong>jsonwebtoken</strong> (Node.js) ou o <strong>Django Simple JWT</strong> (Python) seriam ideiais. E para dados sensíveis, como informações bancárias ou NFs, a criptografia com <strong>bcrypt</strong> ou <strong>argon2</strong> seriam uma boa prática.</p>
+        </section>
+
+        <section>
+            <h2>9. Tecnologias e Ferramentas</h2>
+            <ul>
+                <li><strong>Frontend:</strong>  React, Material UI</li><br>
+                <li><strong>Backend:</strong>  Node.js, Express</li><br>
+                <li><strong>Banco de Dados:</strong>  PostgreSQL</li><br>
+                <li><strong>Hospedagem:</strong>  AWS ou Heroku</li><br>
+                <li><strong>Automação de Testes:</strong>  Jest, Cypress</li><br>
+                <li><strong>CI/CD:</strong>  Github Actions</li><br>
+            </ul>
+        </section>
+
+        <section>
+            <h2>10. Plano de Testes e Qualidade</h2>
+            <ul>
+                <li><strong>Testes Unitários:</strong> Cada componente será testado individualmente para garantir que funcione conforme o esperado.</li><br>
+                <li><strong>Testes de Integração:</strong> Verificação da interação correta entre as APIs e o sistema.</li><br>
+                <li><strong>Testes de Carga e Performance:</strong> Simulações para garantir que o sistema suporte altas demandas.</li><br>
+            </ul>
+        </section>
+
+        <section>
+            <h2>11. Riscos e Mitigações</h2>
+            <p>Possíveis riscos foram identificados, com planos de mitigação:</p>
+            <ul>
+                <li><strong>Atraso nas integrações de APIs externas:</strong> Planejamos ter alternativas para APIs críticas e testar a integração antecipadamente.</li><br>
+                <li><strong>Mudanças nos requisitos do cliente:</strong> Serão realizadas reuniões frequentes para alinhamento e ajustes de escopo.</li><br>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. Cronograma</h2>
+            <p>O desenvolvimento será dividido em fases com duração total de 12 meses:</p>
+            <ul>
+                <li><strong>Fase 1:</strong> Definição de requisitos e prototipagem - 2 meses</li><br>
+                <li><strong>Fase 2:</strong> Desenvolvimento dos módulos principais - 6 meses</li><br>
+                <li><strong>Fase 3:</strong> Integrações com APIs e testes - 3 meses</li><br>
+                <li><strong>Fase 4:</strong> Entrega, implantação e suporte inicial - 1 mês</li><br>
+            </ul>
+        </section>
+
+        <h2>13. Imagens do App</h2>
+        <p>A seguir, apresentamos algumas imagens da interface do aplicativo:</p>
+        <section class="images-section">
+            <img src="TelaLogin.png" alt="Imagem da Tela de Login do App">
+            <img src="TelaHome1.png" alt="Imagem do Dashboard">
+            <img src="TelaHome2.png" alt="Imagem da Tela de Gerenciamento de Processos">
+            <img src="TelaHome2.png" alt="Imagem da Tela de Gerenciamento de Processos">
+            <a href = https://www.figma.com/design/SKo9zZtuXFxopIHmImQ92X/JustoRateio?node-id=0-1&node-type=canvas&t=rrHvbL7m0XBR9gVW-0 > Telas completas no Software Figma</a>
+        </section>
+
+        <section>
+            <h2>14. Custos e Orçamento</h2>
+            <p>Com base em todos esses fatores, este software jurídico customizado com as especificações previstas pode variar entre <strong>R$ 400.000,00</strong> e <strong> R$ 600.000,00 </strong> para desenvolvimento, com um adicional anual para manutenção e infraestrutura de <strong>R$ 60.000,00</strong> a <strong>R$ 100.000,00.</strong></p>
+            <h3><strong>Desenvolvimento:</strong></h3>
+            <ul>
+                <li> Aproximadamente <strong>3.000h</strong> estimadas de trabalho de desenvolvedores, analistas e designers.</li>
+            </ul>
+
+            <h3><strong>Infraestrutura:</strong></h3>
+            <h4><strong>Servidores (Hospedagem):</strong></h4>
+            <ul>
+                <li><strong>Servidor Cloud (AWS, Azure, Google Cloud):</strong> O custo depende da configuração. Para um ambiente robusto (com cerca de 8 GB de RAM e 2 vCPUs), os valores podem variar de <strong>R$ 800 a R$ 1.500 mensais.</strong></li><br>  
+                <li><strong>Serviços Gerenciados (com backups automáticos):</strong> Provedores como AWS e Azure oferecem serviços gerenciados (ex. RDS da AWS para bancos de dados), o que pode adicionar entre <strong>R$ 300 a R$ 500 por mês.</strong>.</li><br> 
+            </ul>
+            <h4><strong>Backup e Armazenamento de Dados:</strong></h4>
+            <ul>
+                <li><strong>Backup Regular (Diário ou Semanal): </strong> O custo depende do volume de dados e da frequência de backup. Serviços como o S3 da AWS para backup de arquivos podem variar de <strong>R$ 50 a R$ 200</strong> mensais para volumes pequenos e médios.</strong></li><br>  
+                <li><strong>Recuperação de Desastres:</strong> Se o projeto requer recuperação rápida e redundância em outra região, o custo pode dobrar ou até triplicar dependendo da necessidade de replicação.</strong>.</li><br> 
+            </ul>
+            <h4><strong>APIs Externas e Integrações:</strong></h4>
+            <ul>
+                <li><strong>APIs Jurídicas (Consultas de Processos):</strong> As APIs de consultas jurídicas têm valores variados. Em geral, as que oferecem atualizações em tempo real e dados amplos cobram entre <strong>R$ 500 a R$ 1.500 mensais</strong>, dependendo do volume de consultas.</strong></li><br>  
+                <li><strong>Serviços de Notificações (ex. Twilio, para SMS): </strong> Caso o sistema precise notificar clientes, o custo depende do volume de mensagens, sendo normalmente <strong>R$ 0,05 a R$ 0,10 por mensagem</strong>, o que pode somar de <strong>R$ 100 a R$ 500 mensais</strong> para volumes moderados.</strong>.</li><br> 
+            </ul>
+        </section>
+
+        <section>
+            <h2>15. Conclusão</h2>
+            <p>Este documento detalha os principais aspectos técnicos do projeto, enfatizando o compromisso em desenvolver um software que atenda plenamente às necessidades específicas do escritório de advocacia. O foco está em criar uma solução robusta e eficiente, que auxilie na gestão de processos e clientes, simplifique a organização de documentos e automatize tarefas administrativas. O desenvolvimento será conduzido de maneira colaborativa, permitindo a participação ativa do cliente em todas as etapas. Essa abordagem transparente garante que o projeto possa ser ajustado conforme necessário, assegurando que o resultado final esteja alinhado às expectativas e às demandas do escritório.</p>
+        </section>
+        <br/>
+        <br/>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Desenvolvimento de Software de Rateios para Advocacias</p>
+    </footer>
+
+</body>
+
+</html>
