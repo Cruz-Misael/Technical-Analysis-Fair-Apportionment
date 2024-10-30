@@ -97,7 +97,7 @@
 <body>
 
     <header>
-        <h1>Análise Técnica - Software de Gestão para Advocacia</h1>
+        <h1>Análise Técnica - Software de Gestão de Rateio para Advocacia</h1>
         <h4>Advocacia Processos Trabalhistas</h4>
     </header>
 
@@ -154,13 +154,13 @@
         <section>
             <h2>5 Arquitetura do Sistema</h2>
             <div class="highlight">
-                <p>A arquitetura proposta para o sistema seguirá o modelo <strong>Cliente-Servidor</strong>, onde o <strong>React</strong> será usado para o front-end e o <strong>Node.js</strong> será usado no back-end para a comunicação com o banco de dados <strong>PostgreSQL</strong>. As integrações com APIs externas serão realizadas por meio de <strong>webhooks</strong> e endpoints RESTful.</p>
+                <p>A arquitetura proposta para o sistema seguirá o modelo <strong>Cliente-Servidor</strong>, onde o <strong>React</strong> será usado para o front-end e o <strong>Node.js</strong> será usado no back-end para a comunicação com o banco de dados <strong>PostgreSQL</strong>. As integrações com APIs externas serão realizadas por meio de <strong>webhooks</strong> e <strong>endpoints RESTful</strong>.</p>
             </div>
             <h3>Frontend (React)</h3>
             <p>A escolha pelo <strong>React</strong> se dá por sua flexibilidade, reutilização de componentes e criação de uma interface amigável e intuitiva tanto para advogados quanto para clientes. O React também facilita a criação de interfaces responsivas, que se adaptam bem a diferentes dispositivos.</p>
             <p>Principais bibliotecas:</p>
             <ul>
-                <li><strong>Axios ou Fetch:</strong> Para realizar chamadas às APIs externas.</li><br>
+                <li><strong>Axios:</strong> Para realizar chamadas às APIs externas.</li><br>
                 <li><strong>React Router:</strong> Para controle de rotas no sistema.</li><br>
                 <li><strong>Formik/Yup:</strong> Para manipulação e validação de formulários.</li><br>
             </ul>
@@ -172,7 +172,7 @@
             </ul>
 
             <h3>Banco de Dados (PostgreSQL)</h3>
-            <p>O <strong>PostgreSQL</strong> será utilizado devido à sua robustez e capacidade de gerenciar relações complexas entre as tabelas. Exemplos incluem uma tabela de clientes, vinculada a uma tabela de processos e outra de documentos. Cada cliente pode ter múltiplos processos associados, e cada processo pode ter vários documentos anexados.</p>
+            <p>O <strong>PostgreSQL</strong> será utilizado devido à sua robustez e capacidade de gerenciar relações complexas entre as tabelas. Exemplos incluem uma tabela de clientes, vinculada a uma tabela de processos e outra de documentos. Cada cliente pode ter múltiplos processos associados, e cada processo pode ter vários documentos anexados. Os documentos, em vez de serem armazenados diretamente no banco de dados, serão armazenados no <strong>AWS S3</strong>, com os links URL referentes a cada documento sendo salvos na tabela correspondente. Isso otimiza o gerenciamento e o acesso a arquivos, garantindo maior eficiência e escalabilidade.</p>
                   
             <p>Ferramentas de ORM:</p>
             <ul>
@@ -201,16 +201,9 @@
             </ul>
         </section>
 
-        <section>
-            <h2>6. Motor de Regras e Processos de Automação</h2>
-            <p>O motor de regras e processos automáticos, como consultas, validação e envio de documentos fiscais, pode ser gerido por bibliotecas que agendam e controlam filas de tarefas. Essas bibliotecas são adequadas para enviar lembretes ou processar grandes volumes de dados em background.</p>
-            <ul>
-                <li><strong>Linguagem:</strong> Node.js com <strong>Bull</strong> ou <strong>Agenda</strong> (para gerenciar jobs agendados).</li>
-            </ul>
-        </section>
 
         <section>
-            <h2>7. Geração de Documentos e Automação de Emails</h2>
+            <h2>6. Geração de Documentos e Automação de Emails</h2>
             <p>O motor de regras e processos automáticos, como consultas, validação e envio de documentos fiscais, pode ser gerido por bibliotecas que agendam e controlam filas de tarefas. Essas bibliotecas são adequadas para enviar lembretes ou processar grandes volumes de dados em background.</p>
             <p>Principais blibliotecas:</p>
             <ul>
@@ -220,9 +213,9 @@
         </section>
 
         <section>
-            <h2>8. Segurança</h2>
+            <h2>7. Segurança</h2>
             <h3>Autenticação e Autorização</h3>
-            <p>A autenticação será implementada utilizando o padrão <strong>OAuth 2.0</strong>, oferecendo um login seguro e gerenciamento de permissões baseadas em papéis (advogado, administrador, cliente).</p>
+            <p>A autenticação será implementada utilizando o padrão <strong>OAuth 2.0</strong>, oferecendo um login seguro e gerenciamento de permissões baseadas em papéis (Admin, PowerUser, User).</p>
             <h3>Criptografia</h3>
             <p>Dados sensíveis serão criptografados tanto em trânsito (usando HTTPS) quanto em repouso (utilizando algoritmos como AES-256), garantindo a conformidade com a LGPD.</p>
 
@@ -230,23 +223,23 @@
             <p>O plano de contingência incluirá backups automáticos diários e a capacidade de recuperação de desastres, para minimizar qualquer impacto em caso de falhas.</p>
             
             <h4>Principais Ferramentas</h4>
-            <p>Para a segurança de autenticação as bibliotecas <strong>jsonwebtoken</strong> (Node.js) ou o <strong>Django Simple JWT</strong> (Python) seriam ideiais. E para dados sensíveis, como informações bancárias ou NFs, a criptografia com <strong>bcrypt</strong> ou <strong>argon2</strong> seriam uma boa prática.</p>
+            <p>Para a segurança de autenticação a biblioteca <strong>jsonwebtoken</strong> (Node.js) seria ideal. E para dados sensíveis, como informações bancárias ou NFs, a criptografia com <strong>bcrypt</strong> seriam uma boa prática.</p>
         </section>
 
         <section>
-            <h2>9. Tecnologias e Ferramentas</h2>
+            <h2>8. Tecnologias e Ferramentas</h2>
             <ul>
                 <li><strong>Frontend:</strong>  React, Material UI</li><br>
                 <li><strong>Backend:</strong>  Node.js, Express</li><br>
                 <li><strong>Banco de Dados:</strong>  PostgreSQL</li><br>
-                <li><strong>Hospedagem:</strong>  AWS ou Heroku</li><br>
+                <li><strong>Hospedagem:</strong>  AWS</li><br>
                 <li><strong>Automação de Testes:</strong>  Jest, Cypress</li><br>
                 <li><strong>CI/CD:</strong>  Github Actions</li><br>
             </ul>
         </section>
 
         <section>
-            <h2>10. Plano de Testes e Qualidade</h2>
+            <h2>9. Plano de Testes e Qualidade</h2>
             <ul>
                 <li><strong>Testes Unitários:</strong> Cada componente será testado individualmente para garantir que funcione conforme o esperado.</li><br>
                 <li><strong>Testes de Integração:</strong> Verificação da interação correta entre as APIs e o sistema.</li><br>
@@ -255,7 +248,7 @@
         </section>
 
         <section>
-            <h2>11. Riscos e Mitigações</h2>
+            <h2>10. Riscos e Mitigações</h2>
             <p>Possíveis riscos foram identificados, com planos de mitigação:</p>
             <ul>
                 <li><strong>Atraso nas integrações de APIs externas:</strong> Planejamos ter alternativas para APIs críticas e testar a integração antecipadamente.</li><br>
@@ -264,7 +257,7 @@
         </section>
 
         <section>
-            <h2>12. Cronograma</h2>
+            <h2>11. Cronograma</h2>
             <p>O desenvolvimento será dividido em fases com duração total de 12 meses:</p>
             <ul>
                 <li><strong>Fase 1:</strong> Definição de requisitos e prototipagem - 2 meses</li><br>
@@ -274,7 +267,7 @@
             </ul>
         </section>
 
-        <h2>13. Imagens do App</h2>
+        <h2>12. Imagens do App</h2>
         <p>A seguir, apresentamos algumas imagens da interface do aplicativo:</p>
         <section class="images-section">
             <img src="TelaLogin.png" alt="Imagem da Tela de Login do App">
@@ -285,7 +278,7 @@
         </section>
 
         <section>
-            <h2>14. Custos e Orçamento</h2>
+            <h2>13. Custos e Orçamento</h2>
             <p>Com base em todos esses fatores, este software jurídico customizado com as especificações previstas pode variar entre <strong>R$ 400.000,00</strong> e <strong> R$ 600.000,00 </strong> para desenvolvimento, com um adicional anual para manutenção e infraestrutura de <strong>R$ 60.000,00</strong> a <strong>R$ 100.000,00.</strong></p>
             <h3><strong>Desenvolvimento:</strong></h3>
             <ul>
@@ -306,12 +299,12 @@
             <h4><strong>APIs Externas e Integrações:</strong></h4>
             <ul>
                 <li><strong>APIs Jurídicas (Consultas de Processos):</strong> As APIs de consultas jurídicas têm valores variados. Em geral, as que oferecem atualizações em tempo real e dados amplos cobram entre <strong>R$ 500 a R$ 1.500 mensais</strong>, dependendo do volume de consultas.</strong></li><br>  
-                <li><strong>Serviços de Notificações (ex. Twilio, para SMS): </strong> Caso o sistema precise notificar clientes, o custo depende do volume de mensagens, sendo normalmente <strong>R$ 0,05 a R$ 0,10 por mensagem</strong>, o que pode somar de <strong>R$ 100 a R$ 500 mensais</strong> para volumes moderados.</strong>.</li><br> 
+                <li><strong>Serviços de Notificações (ex. Twilio, para SMS): </strong> Caso o sistema precise notificar clientes, o custo depende do volume de mensagens, sendo normalmente <strong>R$ 0,05 a R$ 0,10 por mensagem</strong>, o que pode somar de <strong>R$ 100 a R$ 500 mensais</strong> para volumes moderados.</strong></li><br> 
             </ul>
         </section>
 
         <section>
-            <h2>15. Conclusão</h2>
+            <h2>14. Conclusão</h2>
             <p>Este documento detalha os principais aspectos técnicos do projeto, enfatizando o compromisso em desenvolver um software que atenda plenamente às necessidades específicas do escritório de advocacia. O foco está em criar uma solução robusta e eficiente, que auxilie na gestão de processos e clientes, simplifique a organização de documentos e automatize tarefas administrativas. O desenvolvimento será conduzido de maneira colaborativa, permitindo a participação ativa do cliente em todas as etapas. Essa abordagem transparente garante que o projeto possa ser ajustado conforme necessário, assegurando que o resultado final esteja alinhado às expectativas e às demandas do escritório.</p>
         </section>
         <br/>
